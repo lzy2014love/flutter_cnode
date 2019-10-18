@@ -14,7 +14,7 @@ void main() {
 
   MultiProvider(
     providers: [],
-    child: const MyApp(),
+    child: MyApp(),
   );
 
   if (Platform.isAndroid) {
@@ -29,18 +29,7 @@ void main() {
   }
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key key}) : super(key: key);
-
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

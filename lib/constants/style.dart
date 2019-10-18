@@ -25,27 +25,10 @@ class CNColors {
 
   static const int mainTextColor = primaryDarkValue;
   static const int textColorWhite = white;
-
-  static const MaterialColor primarySwatch = const MaterialColor(
-    primaryValue,
-    const <int, Color>{
-      50: const Color(primaryLightValue),
-      100: const Color(primaryLightValue),
-      200: const Color(primaryLightValue),
-      300: const Color(primaryLightValue),
-      400: const Color(primaryLightValue),
-      500: const Color(primaryValue),
-      600: const Color(primaryDarkValue),
-      700: const Color(primaryDarkValue),
-      800: const Color(primaryDarkValue),
-      900: const Color(primaryDarkValue),
-    },
-  );
 }
 
 ///文本样式
 class GSYConstant {
-
   static const lagerTextSize = 30.0;
   static const bigTextSize = 23.0;
   static const normalTextSize = 18.0;
@@ -53,7 +36,7 @@ class GSYConstant {
   static const smallTextSize = 14.0;
   static const minTextSize = 12.0;
 
-  static const minText =  TextStyle(
+  static const minText = TextStyle(
     color: Color(CNColors.subLightTextColor),
     fontSize: minTextSize,
   );
@@ -210,40 +193,66 @@ class CNICons {
 
   static const String DEFAULT_USER_ICON = 'static/images/logo.png';
   static const String DEFAULT_IMAGE = 'static/images/default_img.png';
-  static const String DEFAULT_REMOTE_PIC = 'https://raw.githubusercontent.com/CarGuo/GSYGithubAppFlutter/master/static/images/logo.png';
+  static const String DEFAULT_REMOTE_PIC =
+      'https://raw.githubusercontent.com/CarGuo/GSYGithubAppFlutter/master/static/images/logo.png';
 
-  static const IconData HOME = const IconData(0xe624, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData MORE = const IconData(0xe674, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData SEARCH = const IconData(0xe61c, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData HOME =
+      const IconData(0xe624, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData MORE =
+      const IconData(0xe674, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData SEARCH =
+      const IconData(0xe61c, fontFamily: CNICons.FONT_FAMILY);
 
-  static const IconData MAIN_DT = const IconData(0xe684, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData MAIN_QS = const IconData(0xe818, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData MAIN_MY = const IconData(0xe6d0, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData MAIN_SEARCH = const IconData(0xe61c, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData MAIN_DT =
+      const IconData(0xe684, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData MAIN_QS =
+      const IconData(0xe818, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData MAIN_MY =
+      const IconData(0xe6d0, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData MAIN_SEARCH =
+      const IconData(0xe61c, fontFamily: CNICons.FONT_FAMILY);
 
-  static const IconData LOGIN_USER = const IconData(0xe666, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData LOGIN_PW = const IconData(0xe60e, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData LOGIN_USER =
+      const IconData(0xe666, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData LOGIN_PW =
+      const IconData(0xe60e, fontFamily: CNICons.FONT_FAMILY);
 
-  static const IconData REPOS_ITEM_USER = const IconData(0xe63e, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_STAR = const IconData(0xe643, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_FORK = const IconData(0xe67e, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_ISSUE = const IconData(0xe661, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_USER =
+      const IconData(0xe63e, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_STAR =
+      const IconData(0xe643, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_FORK =
+      const IconData(0xe67e, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_ISSUE =
+      const IconData(0xe661, fontFamily: CNICons.FONT_FAMILY);
 
-  static const IconData REPOS_ITEM_STARED = const IconData(0xe698, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_WATCH = const IconData(0xe681, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_WATCHED = const IconData(0xe629, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_STARED =
+      const IconData(0xe698, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_WATCH =
+      const IconData(0xe681, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_WATCHED =
+      const IconData(0xe629, fontFamily: CNICons.FONT_FAMILY);
   static const IconData REPOS_ITEM_DIR = Icons.folder;
-  static const IconData REPOS_ITEM_FILE = const IconData(0xea77, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_NEXT = const IconData(0xe610, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_FILE =
+      const IconData(0xea77, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_NEXT =
+      const IconData(0xe610, fontFamily: CNICons.FONT_FAMILY);
 
-  static const IconData USER_ITEM_COMPANY = const IconData(0xe63e, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData USER_ITEM_LOCATION = const IconData(0xe7e6, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData USER_ITEM_LINK = const IconData(0xe670, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData USER_NOTIFY = const IconData(0xe600, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData USER_ITEM_COMPANY =
+      const IconData(0xe63e, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData USER_ITEM_LOCATION =
+      const IconData(0xe7e6, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData USER_ITEM_LINK =
+      const IconData(0xe670, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData USER_NOTIFY =
+      const IconData(0xe600, fontFamily: CNICons.FONT_FAMILY);
 
-  static const IconData ISSUE_ITEM_ISSUE = const IconData(0xe661, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData ISSUE_ITEM_COMMENT = const IconData(0xe6ba, fontFamily: CNICons.FONT_FAMILY);
-  static const IconData ISSUE_ITEM_ADD = const IconData(0xe662, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData ISSUE_ITEM_ISSUE =
+      const IconData(0xe661, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData ISSUE_ITEM_COMMENT =
+      const IconData(0xe6ba, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData ISSUE_ITEM_ADD =
+      const IconData(0xe662, fontFamily: CNICons.FONT_FAMILY);
 
   static const IconData ISSUE_EDIT_H1 = Icons.filter_1;
   static const IconData ISSUE_EDIT_H2 = Icons.filter_2;
@@ -254,7 +263,8 @@ class CNICons {
   static const IconData ISSUE_EDIT_CODE = Icons.format_shapes;
   static const IconData ISSUE_EDIT_LINK = Icons.insert_link;
 
-  static const IconData NOTIFY_ALL_READ = const IconData(0xe62f, fontFamily: CNICons.FONT_FAMILY);
+  static const IconData NOTIFY_ALL_READ =
+      const IconData(0xe62f, fontFamily: CNICons.FONT_FAMILY);
 
   static const IconData PUSH_ITEM_EDIT = Icons.mode_edit;
   static const IconData PUSH_ITEM_ADD = Icons.add_box;
