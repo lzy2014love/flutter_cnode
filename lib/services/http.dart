@@ -1,4 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_cnode/constants/app_config.dart';
 import 'package:flutter_cnode/models/result_dto.dart';
@@ -27,7 +28,18 @@ class _Http {
   final _dio = Dio(_options);
 
   _Http() {
+    // 开发模式
     if (!AppConfig.isProducttion) {
+      (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+          (client) {
+        // config the http client
+        // client.findProxy = (uri) {
+        //   //proxy all request to localhost:8888
+        //   return "PROXY localhost:8888";
+        // };
+        // 不校验证书
+        client.badCertificateCallback = (cert, host, port) => true;
+      };
       _dio.interceptors.add(LogInterceptor(responseBody: true)); //开启请求日志
     }
   }
@@ -49,14 +61,14 @@ class _Http {
       cancelFunc = BotToast.showLoading();
     }
     try {
-      final response = await _dio.request<ResultDto<T>>(path,
+      final response = await _dio.request<Map<String, dynamic>>(path,
           data: data,
           queryParameters: queryParameters,
           options: options,
           cancelToken: cancelToken,
           onSendProgress: onSendProgress,
           onReceiveProgress: onReceiveProgress);
-      return response.data;
+      return ResultDto.fromJson(response.data);
     } on DioError catch (e) {
       if (showErrorToast) {
         BotToast.showText(text: e.message);

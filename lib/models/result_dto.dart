@@ -12,7 +12,7 @@ class ResultDto<T> {
   factory ResultDto.fromJson(jsonRes) => jsonRes == null
       ? null
       : ResultDto(
-          success: jsonRes['success'],
+          success: jsonRes['success'] ?? true,
           data: jsonRes['data'],
         );
   Map<String, dynamic> toJson() => {

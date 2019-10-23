@@ -3,19 +3,19 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cnode/constants/style.dart';
-import 'package:flutter_cnode/pages/welcome_page.dart';
+import 'package:flutter_cnode/routes/routes.dart';
 import 'package:flutter_cnode/utils/global.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:bot_toast/bot_toast.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 void main() {
   Provider.debugCheckInvalidValueType = null;
-
-  MultiProvider(
+  runApp(MultiProvider(
     providers: [],
     child: MyApp(),
-  );
+  ));
 
   if (Platform.isAndroid) {
     const style = const SystemUiOverlayStyle(
@@ -33,32 +33,42 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BotToastInit(
-      child: MaterialApp(
-        title: '汽配铺CRM',
-        theme: ThemeData(
-            accentColor: CNColors.primary,
+      child: RefreshConfiguration(
+        hideFooterWhenNotFull: true,
+        enableScrollWhenRefreshCompleted: true,
+        child: MaterialApp(
+          title: 'CNode',
+          color: Colors.red,
+          themeMode: ThemeMode.system,
+          theme: ThemeData(
             platform: TargetPlatform.iOS,
-            unselectedWidgetColor: CNColors.textLight,
-            primaryColor: CNColors.primary,
-            textTheme: TextTheme(body1: CRMText.normalText),
-            cursorColor: CNColors.primary,
-            dividerColor: CNColors.borderLight,
-            scaffoldBackgroundColor: CNColors.commonBg,
-            buttonTheme: ButtonThemeData(
-                buttonColor: CNColors.primary, focusColor: CNColors.primary)),
-        home: WelcomePage(),
-        navigatorKey: Global.rootNavigatorKey,
-        navigatorObservers: [BotToastNavigatorObserver()],
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: [
-          const Locale('zh', 'CH'),
-          const Locale('en', 'US'),
-        ],
-        locale: Locale('zh', 'CH'),
+            // accentColor: CNColors.primary,
+            // unselectedWidgetColor: CNColors.textLight,
+            // primaryColor: CNColors.primary,
+            // textTheme: TextTheme(body1: CRMText.normalText),
+            // cursorColor: CNColors.primary,
+            // dividerColor: CNColors.borderLight,
+            // scaffoldBackgroundColor: CNColors.commonBg,
+            // buttonTheme: ButtonThemeData(
+            //     buttonColor: CNColors.primary, focusColor: CNColors.primary)
+          ),
+          // darkTheme: ,
+          navigatorKey: Global.rootNavigatorKey,
+          initialRoute: RouteName.home,
+          onGenerateRoute: Routes.generateRoute,
+          navigatorObservers: [BotToastNavigatorObserver()],
+          localizationsDelegates: [
+            RefreshLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('zh', 'CH'),
+            Locale('en', 'US'),
+          ],
+          locale: Locale('zh', 'CH'),
+        ),
       ),
     );
   }

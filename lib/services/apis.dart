@@ -7,14 +7,14 @@ import 'package:flutter_cnode/services/http.dart';
 /// api地址`https://cnodejs.org/api`
 /// 主题首页
 Future<List<Topic>> getTopics(
-    {int page, String tab, int limit, bool mdrender = true}) async {
-  final resultDto = await GET('/topics', queryParameters: {
+    {int page, String tab, int limit = 10, bool mdrender = true}) async {
+  final resultDto = await GET<List>('/topics', queryParameters: {
     'page': page,
     'tab': tab,
     'limit': limit,
     'mdrender': mdrender.toString()
   });
-  return resultDto.data;
+  return resultDto.data.map((topic) => Topic.fromJson(topic)).toList();
 }
 
 /// 主题详情
@@ -23,7 +23,7 @@ Future<TopicDetail> getTopic(String id,
   final resultDto = await GET('/topics/$id',
       queryParameters: {'mdrender': mdrender.toString()},
       needAccesstoken: needAccesstoken);
-  return resultDto.data;
+  return TopicDetail.fromJson(resultDto.data);
 }
 
 /// 收藏主题
@@ -44,14 +44,14 @@ Future<void> decollectTopic(
 
 /// 用户所收藏的主题
 Future<List<Topic>> getTopicCollect(String loginname) async {
-  final resultDto = await GET('/topic_collect/$loginname');
-  return resultDto.data;
+  final resultDto = await GET<List>('/topic_collect/$loginname');
+  return resultDto.data.map((topic) => Topic.fromJson(topic)).toList();
 }
 
 /// 用户详情
 Future<User> getUser(String loginname) async {
   final resultDto = await GET('/user/$loginname');
-  return resultDto.data;
+  return User.fromJson(resultDto.data);
 }
 
 /// 验证 accessToken 的正确性
@@ -68,7 +68,7 @@ Future<int> getUnreadMsgNum() async {
 /// 获取已读和未读消息
 Future<Messages> getMessages({bool mdrender = true}) async {
   final resultDto = await GET('/messages', needAccesstoken: true);
-  return resultDto.data;
+  return Messages.fromJson(resultDto.data);
 }
 
 /// 标记全部已读

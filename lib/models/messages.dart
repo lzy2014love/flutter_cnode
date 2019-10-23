@@ -2,6 +2,8 @@
 
 import 'dart:convert' show json;
 
+import 'package:flutter_cnode/models/User.dart';
+
 class Messages {
   List<Message> hasReadMessages;
   List<Message> hasnotReadMessages;
